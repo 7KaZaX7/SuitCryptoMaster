@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Support
+{% endblock %}
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/Support.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="main">
+        <h2>Связь с поддержкой</h2>
+        <b>Если вы хотите помочь нашему проекту или получить помощь, свяжитесь с нами. Мы обязательно выслушаем вас и поможем вам!</b>
+        <div class="form">
+            <h3>Форма обратной связи</h3>
+            <div class="input-form">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="input-form">
+                <textarea name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="input-form">
+                <input type="submit" value="Send">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

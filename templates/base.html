@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/CryptoMaster.png') }}" width="50" height="50">
+        <a href="{{ url_for('index') }}" class="logo">CryptoMaster</a>
+        <nav>
+            <ul>
+                <li><a href="/CryptoMaster">Codings &dtrif;</a>
+                    <ul>
+                        <li><a href="/Base64">Base64</a></li>
+                        <li><a href="/Morse_code">Morse code</a></li>
+                        <li><a href="/Bacon">Bacon</a></li>
+                        <li><a href="/ASCII">ASCII</a></li>
+                    </ul>
+                </li>
+                <li><a href="/QR-codings">QR-codings</a></li>
+                <li><a href="/CryptoMaster">Ciphers &dtrif;</a>
+                    <ul>
+                        <li><a href="/Caesar">Caesar</a></li>
+                        <li><a href="/Xor">Xor</a></li>
+                        <li><a href="/Atbash">Atbash</a></li>
+                    </ul>
+                </li>
+                <li><a href="/Support">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block body %}{% endblock %}
+    <footer>
+        <nav>
+            <p>CryptoMaster ® - Observer</p>
+        </nav>
+    </footer>
+</body>
+</html>
