@@ -16,15 +16,17 @@ Support
         <b>Если вы хотите помочь нашему проекту или получить помощь, свяжитесь с нами. Мы обязательно выслушаем вас и поможем вам!</b>
         <div class="form">
             <h3>Форма обратной связи</h3>
-            <div class="input-form">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-form">
-                <textarea name="message" placeholder="Message"></textarea>
-            </div>
-            <div class="input-form">
-                <input type="submit" value="Send">
-            </div>
+            <form method="post">
+                <div class="input-form">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="input-form">
+                    <textarea name="message" id="message" placeholder="Message"></textarea>
+                </div>
+                <div class="input-form">
+                    <input type="submit" value="Send">
+                </div>
+            </form>
         </div>
     </div>
 </main>

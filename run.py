@@ -1,6 +1,27 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
+from datetime import datetime
+from flask import request
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///email.db'
+db = SQLAlchemy(app)
+
+
+class Atricle(db.Model):
+    date = str(datetime.now())[:-7]
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(50), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    date = db.Column(db.String, default=date)
+
+    def __repr__(self):
+        return '<Article %r>' % self.id
+
+
+with app.app_context():
+    db.create_all()
 
 
 @app.route('/')
@@ -24,9 +45,20 @@ def qr_codings():
     return render_template('QR-codings.html')
 
 
-@app.route('/Support')
+@app.route('/Support', methods=['GET', 'POST'])
 def support():
-    return render_template('Support.html')
+    if request.method == 'POST':
+        email = request.form.getlist('email')
+        message = request.form.getlist('message')
+        article = Atricle(email=email[0], content=message[0])
+        try:
+            db.session.add(article)
+            db.session.commit()
+            return redirect('/Support')
+        except:
+            return redirect('/Support')
+    else:
+        return render_template('Support.html')
 
 
 @app.route('/Base64')
