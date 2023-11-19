@@ -6,8 +6,41 @@ QR-codings
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<style> 
+.main_text{
+    text-align: center;
+    margin-top: 80PX;
+}
+
+.rofl{
+    text-align: center;
+    margin-top: 90vh;
+}
+
+img{
+    display: inline-block;
+    top: 200px
+}
+.wait{
+    position: absolute;
+    left: 10px;
+}
+
+.wait_revers{
+    position: absolute;
+    right: 10px;
+    transform: scaleX(-1);
+}
+</style>
 {% endblock %}
 
 {% block body %}
-<h1>Hello world!</h1>
+<main class="main">
+    <div>
+        <h1 class="main_text">В разработке, ожидайте!</h1>
+        <img class="wait" src="{{ url_for('static', filename='img/wait.png') }}">
+        <img class="wait_revers" src="{{ url_for('static', filename='img/wait.png') }}">
+        <h1 class="rofl">Тут тоже пока пусто!</h1>
+    </div>
+</main>
 {% endblock %}

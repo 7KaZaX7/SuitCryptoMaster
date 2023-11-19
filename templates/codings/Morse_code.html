@@ -6,8 +6,33 @@ Morse code
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/operation.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
-<h1>Hello world!</h1>
+<main class="main">
+    <div>
+        <h2>Morse code</h2>
+        <p><b>Код Морзе</b> - это система кодирования, которая использует комбинации длинных и коротких сигналов (обычно в виде звуковых или световых импульсов) для представления букв и цифр. Этот код был разработан <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%80%D0%B7%D0%B5,_%D0%A1%D1%8D%D0%BC%D1%8E%D1%8D%D0%BB"><b>Сэмюэлем Морзе</b></a> и <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%B9%D0%BB,_%D0%90%D0%BB%D1%8C%D1%84%D1%80%D0%B5%D0%B4"><b>Альфредом Вейлендом</b></a> в 1830-х годах и широко применяется в <i>телеграфии</i> и <i>радиосвязи</i>. Каждая буква и цифра имеет свой уникальный набор коротких и длинных сигналов. Например, "A" кодируется как ".-" (точка, тире), а "0" как "-----" (пять точек).</p>
+    </div>
+    <div class="form">
+        <h3>Morse code</h3>
+        <form method="post">
+            <div class="input-form">
+                <textarea name="input" id="input" placeholder="input">{% if input %}{{ input }}{% endif %}</textarea>
+            </div>
+            <div class="input-form">
+                <textarea name="output" id="output" placeholder="output">{% if output %}{{ output }}{% endif %}</textarea>
+            </div>
+            <div class="radio-btn">
+                <input type="radio" name="radio-group" id="encode" value="encode"><label for="encode">Encode</label>
+                <input type="radio" name="radio-group" id="decode" value="decode"><label for="decode">Decode</label>
+            </div>
+            <div class="button">
+                <input type="submit" value="Send">
+            </div>
+            
+        </form>
+    </div>
+</main>
 {% endblock %}
