@@ -110,8 +110,8 @@ nav ul li:hover > ul{
 }
 
 footer{
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: -20vh;
     right: 15%;
     left: 15%;
     height: 50px;
