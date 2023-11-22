@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 from scripts.send_message import send
-from scripts.ciphers import caesar_cipher
+from scripts.ciphers import caesar_cipher, xor_cipher, atbash_cipher
 from scripts.codings import base64_coder, morse_code_coder, bacon_coder, ascii_coder
 
 app = Flask(__name__)
@@ -157,14 +157,43 @@ def caesar():
         return render_template('ciphers/Caesar.html')
 
 
-@app.route('/CryptoMaster/Ciphers/Xor')
+@app.route('/CryptoMaster/Ciphers/Xor', methods=['GET', 'POST'])
 def xor():
-    return render_template('ciphers/Xor.html')
+    if request.method == 'POST':
+        input = request.form.getlist('input')
+        radio = request.form.getlist('radio-group')
+        key = request.form.getlist('key')
+        try:
+            if radio[0] == "encrypt":
+                output = xor_cipher.encrypt_xor(
+                    str(input[0]), int(key[0]))
+            else:
+                output = xor_cipher.encrypt_xor(
+                    str(input[0]), int(key[0]))
+        except:
+            return render_template('ciphers/Xor.html', input=input[0], output="Error")
+        return render_template('ciphers/Xor.html', input=input[0], output=output)
+    else:
+        return render_template('ciphers/Xor.html')
 
 
-@app.route('/CryptoMaster/Ciphers/Atbash')
+@app.route('/CryptoMaster/Ciphers/Atbash', methods=['GET', 'POST'])
 def atbash():
-    return render_template('ciphers/Atbash.html')
+    if request.method == 'POST':
+        input = request.form.getlist('input')
+        radio = request.form.getlist('radio-group')
+        try:
+            if radio[0] == "encrypt":
+                output = atbash_cipher.encrypt_atbash(
+                    str(input[0]))
+            else:
+                output = atbash_cipher.decrypt_atbash(
+                    str(input[0]))
+        except:
+            return render_template('ciphers/Atbash.html', input=input[0], output="Error")
+        return render_template('ciphers/Atbash.html', input=input[0], output=output)
+    else:
+        return render_template('ciphers/Atbash.html')
 
 
 if __name__ == '__main__':

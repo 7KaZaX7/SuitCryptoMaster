@@ -6,8 +6,36 @@ Xor
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/operation.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
-<h1>Hello world!</h1>
+<main class="main">
+    <div>
+        <h2>XOR</h2>
+        <p><b>XOR</b> - это битовая операция, которая может быть использована для шифрования данных. В этом методе каждый бит исходного текста (или ключа) "<i>смешивается</i>" с соответствующим битом ключа с использованием операции XOR. Если биты одинаковые, результат XOR равен 0; если биты разные, результат равен 1. Применение XOR к каждому биту сообщения обеспечивает высокую степень безопасности, особенно если ключ длинный и случайно сгенерирован. XOR шифрование часто используется в современной криптографии.</p>
+    </div>
+    <div class="form">
+        <h3>XOR</h3>
+        <form method="post">
+            <div class="input-form">
+                <textarea name="input" id="input" placeholder="input">{% if input %}{{ input }}{% endif %}</textarea>
+            </div>
+            <div class="input-form">
+                <textarea name="output" id="output" placeholder="output">{% if output %}{{ output }}{% endif %}</textarea>
+            </div>
+            <div class="key">
+                <input type="number" name="key" id="key" placeholder="Key">
+            </div>
+            <div class="radio-btn">
+                <input type="radio" name="radio-group" id="encrypt" value="encrypt"><label for="encrypt">Encrypt</label>
+                <input type="radio" name="radio-group" id="decrypt" value="decrypt"><label for="decrypt">Decrypt</label>
+            </div>
+            <div class="button">
+                <input type="submit" value="Send">
+            </div>
+            
+        </form>
+    </div>
+</main>
 {% endblock %}

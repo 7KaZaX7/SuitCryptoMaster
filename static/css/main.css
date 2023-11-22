@@ -50,10 +50,13 @@ header .logo:hover{
     text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.8);
 }
 
+header nav{
+    margin-left: auto;
+}
+
 header nav ul{
     position:static;
     display: flex;
-    margin-left: 300px;
     text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -125,7 +128,12 @@ footer{
     border-top-right-radius: 15px;
 }
 
+footer nav{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 footer nav p{
-    margin-left: 400px;
+    text-align: center;
     text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 }

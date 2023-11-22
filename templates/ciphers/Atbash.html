@@ -6,8 +6,33 @@ Atbash
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/operation.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
-<h1>Hello world!</h1>
+<main class="main">
+    <div>
+        <h2>Atbash</h2>
+        <p><b>Atbash</b>- это алфавитный шифр, который основан на зеркальном отображении букв алфавита. В этом методе каждая буква заменяется ей противоположной в алфавите. Например, "A" заменяется "Z", "B" заменяется "Y", и так далее. Шифр Атбаш легко понимать и использовать, но, как и Цезарь, он не предоставляет высокой степени защиты.</p>
+    </div>
+    <div class="form">
+        <h3>Atbash</h3>
+        <form method="post">
+            <div class="input-form">
+                <textarea name="input" id="input" placeholder="input">{% if input %}{{ input }}{% endif %}</textarea>
+            </div>
+            <div class="input-form">
+                <textarea name="output" id="output" placeholder="output">{% if output %}{{ output }}{% endif %}</textarea>
+            </div>
+            <div class="radio-btn">
+                <input type="radio" name="radio-group" id="encrypt" value="encrypt"><label for="encrypt">Encrypt</label>
+                <input type="radio" name="radio-group" id="decrypt" value="decrypt"><label for="decrypt">Decrypt</label>
+            </div>
+            <div class="button">
+                <input type="submit" value="Send">
+            </div>
+            
+        </form>
+    </div>
+</main>
 {% endblock %}
