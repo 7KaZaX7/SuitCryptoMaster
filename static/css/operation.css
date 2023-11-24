@@ -7,9 +7,9 @@ h2{
 
 .form {
     position: absolute;
-    top: 500px;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%) translateX(-50%);
     background: rgba(64, 64, 64, .9);
     border-radius: 25px;
     box-shadow: 7px 5px 5px rgba(0, 0, 0, 0.6);
